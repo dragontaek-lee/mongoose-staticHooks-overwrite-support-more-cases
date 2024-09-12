@@ -7,7 +7,7 @@ const start = require('./common');
 const mongoose = start.mongoose;
 const Schema = mongoose.Schema;
 
-describe('Overwriting the built-in Mongoose aggregate middleware with static method', function() {
+describe('Overwriting the built-in Mongoose aggregate function with static method', function() {
   describe('Aggregate middleware', function() {
     let db;
 

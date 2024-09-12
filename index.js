@@ -21,10 +21,10 @@ const { Aggregate, Model } = mongoose;
 
 async function runTests() {
   try {
-    console.log(colors.red('[Overwriting the built-in Mongoose aggregate middleware with static method.]'))
+    console.log(colors.red('[Overwriting the built-in Mongoose aggregate function with static method.]'))
     
     // Test 1
-    console.log(colors.blue.bold('Running Test 1: Both the custom static method named aggregate middleware and the built-in Mongoose aggregate hooks are triggered.'));
+    console.log(colors.blue.bold('Running Test 1: Both the custom static method named aggregate and the built-in Mongoose aggregate function hooks are triggered.'));
 
     const schema1 = new Schema({ name: String, deleted: Boolean });
 
@@ -32,7 +32,7 @@ async function runTests() {
     let calledPost1 = 0;
 
     /* 
-        The custom static method (aggregate) overwrites an existing aggregate middleware.
+        The custom static method (aggregate) overwrites an existing aggregate function.
         mocked implementation of 'mongoose-delete' plugin which overwrites built-in Mongoose's functions.
     */
     schema1.statics.aggregate = function(pipeline) {
@@ -83,7 +83,7 @@ async function runTests() {
     console.log(colors.green.bold('Test 1 completed ✔️'));
 
     // Test 2 
-    console.log(colors.blue.bold('Running Test 2: Both the custom static method named aggregate and the built-in Mongoose aggregate middleware hooks are triggered, and their this contexts are different.'));
+    console.log(colors.blue.bold('Running Test 2: Both the custom static method named aggregate and the built-in Mongoose aggregate function hooks are triggered, and their this contexts are different.'));
 
     const schema2 = new Schema({ name: String, deleted: Boolean });
 
